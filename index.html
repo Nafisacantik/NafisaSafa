@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi Desa Karangsari Kembaran Banyumas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0f3d30;
+            --primary-light: #1b4d3e;
+            --accent-color: #d4a563; /* Warna Kuning Emas */
+            --accent-hover: #e5b673; /* Warna Emas Terang saat Hover */
+            --bg-light: #f4f7f5;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR MODERN & RAMPING */
+        .navbar {
+            background-color: rgba(15, 61, 48, 0.96); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(212, 165, 99, 0.3); 
+            transition: all 0.3s ease;
+        }
+
+        /* Bagian Logo & Judul Desa */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 25px; 
+        }
+
+        .brand-logo {
+            background-color: white; 
+            width: 36px; 
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            overflow: hidden; 
+            padding: 3px;     
+        }
+
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-title {
+            font-weight: 700;
+            font-size: 18px; 
+            color: var(--accent-color);
+            letter-spacing: -0.3px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(244, 247, 245, 0.85); 
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-cta {
+            text-decoration: none;
+            background-color: var(--accent-color);
+            color: #1a202c;
+            padding: 8px 20px; 
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(212, 165, 99, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(212, 165, 99, 0.3);
+        }
+
+        /* HERO SECTION DENGAN EFEK BLUR SAMAR & GELOMBANG */
+        .hero {
+            position: relative;
+            background: url('images//Gemini_Generated_Image_6dea0r6dea0r6dea.png') no-repeat center center/cover;
+            height: 95vh; /* Sedikit dinaikkan tingginya agar space terpotong gelombang tetap proporsional */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(15, 61, 48, 0.45), rgba(10, 35, 28, 0.65));
+            backdrop-filter: blur(3px); 
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+
+        /* Konten teks utama */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px; /* Jarak aman agar teks tidak tertutup gelombang bawah */
+        }
+
+        .welcome-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 700px;
+            margin-bottom: 35px;
+            font-weight: 300;
+            opacity: 0.95;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #1a202c;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 165, 99, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* CSS Pembentuk Gelombang SVG */
+        .hero-wave {
+            position: absolute;
+            bottom: -2px; /* Mencegah adanya garis bocor tipis di browser tertentu */
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            z-index: 3; /* Berada di atas overlay background */
+        }
+
+        .hero-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px; /* Tinggi gelombang kurva */
+        }
+
+        .hero-wave .shape-fill {
+            fill: var(--bg-light); /* Menyamakan warna gelombang dengan background section selanjutnya */
+        }
+
+        /* Section Layout Global */
+        section {
+            padding: 90px 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            background-color: #e2ece9;
+            color: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Sambutan & Profil Card Grid */
+        .grid-profile {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sambutan-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border-left: 6px solid var(--primary-color);
+            position: relative;
+        }
+
+        .kades-frame {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .kades-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .kades-info h4 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .kades-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .quote-text {
+            font-style: italic;
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Staf Desa Section */
+        .staf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .staf-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+
+        .staf-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .staf-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .staf-details {
+            padding: 20px;
+        }
+
+        .staf-details h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .staf-details p {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* CSS BARU: STATISTIK KEPENDUDUKAN */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stats-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+            text-align: center;
+            border: 1px solid #eef2f5;
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .stats-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .demografi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .demografi-card {
+            background: white;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f5;
+        }
+
+        .demografi-card h3 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 10px;
+        }
+
+        .stat-bar-group {
+            margin-bottom: 20px;
+        }
+
+        .stat-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .stat-bar-bg {
+            background: #edf2f7;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            border-radius: 6px;
+        }
+
+        .fill-gold {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+        }
+
+        /* UMKM Desa */
+        .umkm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .umkm-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .umkm-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .umkm-banner {
+            position: relative;
+        }
+
+        .umkm-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .umkm-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent-color);
+            color: #1a202c;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .umkm-info {
+            padding: 25px;
+        }
+
+        .umkm-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .umkm-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Kegiatan Desa */
+        .kegiatan-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .kegiatan-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .kegiatan-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .kegiatan-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .kegiatan-meta {
+            font-size: 12px;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .kegiatan-body h3 {
+            font-size: 19px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .kegiatan-body p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Kontak Section Modern */
+        .kontak-wrapper {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            box-shadow: 0 15px 40px rgba(15, 61, 48, 0.25);
+        }
+
+        .kontak-info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .kontak-info p {
+            opacity: 0.85;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .kontak-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .kontak-icon {
+            background: rgba(255,255,255,0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .form-kontak {
+            background: rgba(255,255,255,0.06);
+            padding: 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .form-input::placeholder {
+            color: #cbd5e0;
+        }
+
+        .btn-submit {
+            background: var(--accent-color);
+            color: #1a202c;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent-hover);
+        }
+
+        footer {
+            background-color: #0b2b22;
+            color: rgba(255,255,255,0.6);
+            padding: 40px 10%;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 992px) {
+            .grid-profile, .kontak-wrapper { grid-template-columns: 1fr; }
+            .navbar { flex-direction: column; gap: 12px; padding: 15px 2%; }
+            .brand { margin-left: 0; } 
+            .nav-container { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 38px; }
+            .hero-wave svg { height: 40px; } /* Mengecilkan tinggi gelombang di layar HP */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-logo">
+                <img src="images//logo-bms.png" alt="Logo Desa">
+            </div>
+            <span class="brand-title">Desa Karangsari</span>
+        </div>
+        
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#profil">Profil & Sambutan</a></li>
+                <li><a href="#staf">Staf Desa</a></li>
+                <li><a href="#statistik">Statistik</a></li>
+                <li><a href="#umkm">UMKM Desa</a></li>
+                <li><a href="#kegiatan">Kegiatan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <a href="#kontak" class="btn-cta">Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="welcome-badge">✨Website Resmi Pemdes✨</div>
+            <h1>Desa Karangsari<br><span>Kembaran Banyumas</span></h1>
+            <p>"Selamat Datang di Portal Resmi Pemerintah Desa Karangsari, Kecamatan Kembaran, Kabupaten Banyumas. Hadir sebagai wujud transparansi, pusat informasi terpadu, dan komitmen kami dalam meningkatkan kualitas pelayanan publik digital yang responsif demi kemajuan seluruh masyarakat”</p>
+            <div class="hero-btns">
+                <a href="#profil" class="btn-primary">Profil Desa</a>
+            </div>
+        </div>
+
+        <!-- ELEMENT SVG UNTUK EFEK GELOMBANG -->
+        <div class="hero-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section id="profil">
+        <div class="grid-profile">
+            <div class="sambutan-card">
+                <div class="kades-frame">
+                    <img src="images//Kepala desa.png" alt="Kepala Desa Karangsari" class="kades-img">
+                    <div class="kades-info">
+                        <h4>Bpk.Mujahidin</h4>
+                        <p>Kepala Desa Karangsari</p>
+                    </div>
+                </div>
+                <p class="quote-text">
+                    " Assalamu'alaikum Warahmatullahi Wabarakatuh
+                    Puji syukur ke hadirat Allah SWT atas segala limpahan rahmat dan karunia-Nya sehingga kita senantiasa diberikan kesehatan, kekuatan, dan kesempatan untuk terus berkarya dalam membangun Desa Karangsari yang kita cintai.
+                    Selamat datang di website resmi Desa Karangsari, Kecamatan Kembaran, Kabupaten Banyumas. Kehadiran website ini merupakan salah satu upaya pemerintah desa dalam meningkatkan kualitas pelayanan publik serta mewujudkan pemerintahan yang transparan, informatif, dan responsif terhadap kebutuhan masyarakat.
+                    Melalui website ini, kami berharap masyarakat dapat memperoleh berbagai informasi mengenai profil desa, program pembangunan, kegiatan kemasyarakatan, potensi desa, serta berbagai layanan yang tersedia. Selain itu, website ini juga menjadi sarana komunikasi antara pemerintah desa dan masyarakat sehingga dapat memperkuat partisipasi warga dalam pembangunan desa."
+                </p>
+            </div>
+
+            <div class="profile-desc" style="margin-top: 10px; display: flex; flex-direction: column; justify-content: flex-start;">
+                <span class="section-badge" style="align-self: flex-start; margin-bottom: 10px;">Profil Singkat</span>
+                <h2 style="color: var(--primary-color); font-size: 32px; margin-bottom: 10px; font-weight: 500; line-height: 1.3;">
+                    Mengenal Lebih Dekat Desa Karangsari
+                </h2>
+                <p style="color: var(--text-dark); margin-bottom: 15px; font-size: 16px; text-align: justify; line-height: 1.7;">
+                    Desa Karangsari merupakan salah satu desa strategis yang terletak di wilayah administrasi <strong>Kecamatan Kembaran, Kabupaten Banyumas, Jawa Tengah</strong>. Berada di lingkungan yang asri dengan topografi yang mendukung, desa ini bertransformasi menjadi desa yang mandiri dan berdaya saing tinggi.
+                </p>
+                <p style="color: var(--text-muted); font-size: 15px; text-align: justify; line-height: 1.7;">
+                    Dengan kearifan lokal masyarakat Banyumas yang guyub rukun, Desa Karangsari mengedepankan integrasi teknologi modern dengan perekonomian rakyat guna mendorong pertumbuhan UMKM setempat, fasilitas umum, dan transparansi administrasi.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="staf" style="background-color: #fff;">
+        <div class="section-header">
+            <span class="section-badge">Aparatur Desa</span>
+            <h2>Perangkat Desa</h2>
+        </div>
+        <div class="staf-grid">
+            <!-- 1. Sekretaris Desa -->
+            <div class="staf-card">
+                <img src="images/sekretaris desa.jpg" alt="Sekretaris Desa" class="staf-img">
+                <div class="staf-details">
+                    <h3>Siti Rahmawati</h3>
+                    <p>Sekretaris Desa</p>
+                </div>
+            </div>
+
+            <!-- 2. Kaur Keuangan -->
+            <div class="staf-card">
+                <img src="images/kaur keuangan.jpg" alt="Kaur Keuangan" class="staf-img">
+                <div class="staf-details">
+                    <h3>Budi Setiawan</h3>
+                    <p>Kaur Keuangan</p>
+                </div>
+            </div>
+
+            <!-- 3. Kaur Pemerintahan -->
+            <div class="staf-card">
+                <img src="images/kasi pemerintahan.png" alt="Kaur Pemerintahan" class="staf-img">
+                <div class="staf-details">
+                    <h3>Dian Permata</h3>
+                    <p>Kaur Pemerintahan</p>
+                </div>
+            </div>
+
+            <!-- 4. Kaur Kesejahteraan -->
+            <div class="staf-card">
+                <img src="images/kasi kesejahteraan.jpg" alt="Kaur Kesejahteraan" class="staf-img">
+                <div class="staf-details">
+                    <h3>Dian Permata</h3>
+                    <p>Kaur Kesejahteraan</p>
+                </div>
+            </div>
+
+            <!-- 5. Kaur Perencanaan -->
+            <div class="staf-card">
+                <img src="images/kaur perencanaan.jpg" alt="Kaur Perencanaan" class="staf-img">
+                <div class="staf-details">
+                    <h3>Dian Permata</h3>
+                    <p>Kaur Perencanaan</p>
+                </div>
+            </div>
+
+            <!-- 6. Kaur Tata Usaha dan Umum -->
+            <div class="staf-card">
+                <img src="images/kaur TU.jpg" alt="Kaur Tata Usaha Dan Umum" class="staf-img">
+                <div class="staf-details">
+                    <h3>Dian Permata</h3>
+                    <p>Kaur Tata Usaha Dan Umum</p>
+                </div>
+            </div>
+            
+            <div class="staf-card">
+                <img src="images//kasi pelayanan.png" alt="Kadus I" class="staf-img">
+                <div class="staf-details">
+                    <h3>Hendra Wijaya</h3>
+                    <p>Kaur Pelayanan</p>
+                </div>
+            </div>
+
+            <!-- 7. Kepala Dusun I -->
+            <div class="staf-card">
+                <img src="images/KEPALA DUSUN.png" alt="Kadus I" class="staf-img">
+                <div class="staf-details">
+                    <h3>Hendra Wijaya</h3>
+                    <p>Kepala Dusun I</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BARU: STATISTIK KEPENDUDUKAN (DI ATAS UMKM) -->
+    <section id="statistik" style="background-color: #fff; border-top: 1px solid #edf2f7;">
+        <div class="section-header">
+            <span class="section-badge">Data Demografi</span>
+            <h2>Statistik Kependudukan</h2>
+        </div>
+        
+        <!-- Grid Ringkasan Jumlah Utama -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <span class="stats-icon">👥</span>
+                <div class="stats-number">4.850</div>
+                <div class="stats-label">Total Penduduk</div>
+            </div>
+            <div class="stats-card">
+                <span class="stats-icon">🏠</span>
+                <div class="stats-number">1.420</div>
+                <div class="stats-label">Kepala Keluarga</div>
+            </div>
+            <div class="stats-card">
+                <span class="stats-icon">🧱</span>
+                <div class="stats-number">06</div>
+                <div class="stats-label">Jumlah RW</div>
+            </div>
+            <div class="stats-card">
+                <span class="stats-icon">📍</span>
+                <div class="stats-number">24</div>
+                <div class="stats-label">Jumlah RT</div>
+            </div>
+        </div>
+
+        <!-- Detail Grafik Progress Jenis Kelamin & Pembagian Wilayah -->
+        <div class="demografi-container">
+            <!-- Kartu Jenis Kelamin -->
+            <div class="demografi-card">
+                <h3>Berdasarkan Jenis Kelamin</h3>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                        <span>Laki-laki</span>
+                        <span>2.460 Jiwa (50.7%)</span>
+                    </div>
+                    <div class="stat-bar-bg">
+                        <div class="stat-bar-fill" style="width: 50.7%;"></div>
+                    </div>
+                </div>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                        <span>Perempuan</span>
+                        <span>2.390 Jiwa (49.3%)</span>
+                    </div>
+                    <div class="stat-bar-bg">
+                        <div class="stat-bar-fill fill-gold" style="width: 49.3%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu Kepadatan per RW (Contoh Klusterisasi Wilayah) -->
+            <div class="demografi-card">
+                <h3>Sebaran Penduduk Tingkat RW</h3>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                        <span>RW 01 (RT 01 - RT 04)</span>
+                        <span>820 Jiwa</span>
+                    </div>
+                    <div class="stat-bar-bg">
+                        <div class="stat-bar-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                        <span>RW 02 (RT 05 - RT 08)</span>
+                        <span>940 Jiwa</span>
+                    </div>
+                    <div class="stat-bar-bg">
+                        <div class="stat-bar-fill" style="width: 88%;"></div>
+                    </div>
+                </div>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                        <span>RW lainnya (RW 03 - RW 06)</span>
+                        <span>3.090 Jiwa</span>
+                    </div>
+                    <div class="stat-bar-bg">
+                        <div class="stat-bar-fill fill-gold" style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="umkm" style="background-color: var(--bg-light);">
+        <div class="section-header">
+            <span class="section-badge">Ekonomi Kreatif</span>
+            <h2>Produk Unggulan UMKM Desa</h2>
+        </div>
+        <div class="umkm-grid">
+            <div class="umkm-card">
+                <div class="umkm-banner">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=500&q=80" alt="Kuliner" class="umkm-img">
+                    <span class="umkm-badge">Kuliner Tradisional</span>
+                </div>
+                <div class="umkm-info">
+                    <h3>Keripik Tempe Mendoan</h3>
+                    <p>Cita rasa khas Banyumasan yang renyah and gurih, dibuat langsung oleh industry rumahan warga RW 02 Karangsari.</p>
+                </div>
+            </div>
+            <div class="umkm-card">
+                <div class="umkm-banner">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1db207f62?auto=format&fit=crop&w=500&q=80" alt="Kerajinan" class="umkm-img">
+                    <span class="umkm-badge">Kerajinan Tangan</span>
+                </div>
+                <div class="umkm-info">
+                    <h3>Batik Tulis Banyumasan</h3>
+                    <p>Kerajinan batik tulis bermotif khas corak Jonasan berkualitas tinggi buatan kelompok pemberdayaan wanita tani.</p>
+                </div>
+            </div>
+            <div class="umkm-card">
+                <div class="umkm-banner">
+                    <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=500&q=80" alt="Pertanian" class="umkm-img">
+                    <span class="umkm-badge">Agrobisnis</span>
+                </div>
+                <div class="umkm-info">
+                    <h3>Madu Ternak Alami</h3>
+                    <p>Madu murni asli hasil budidaya lebah klanceng dari perkebunan organik terpadu Karangsari.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kegiatan" style="background-color: #fff;">
+        <div class="section-header">
+            <span class="section-badge">Agenda & Berita</span>
+            <h2>Kegiatan Warga</h2>
+        </div>
+        <!-- Pembuka kontainer list kegiatan -->
+        <div class="kegiatan-list">
+            <!-- 1. Kegiatan Pertama -->
+            <div class="kegiatan-card">
+                <img src="images/musyawarah desa.jpeg" class="kegiatan-img" alt="Musyawarah Desa">
+                <div class="kegiatan-body">
+                    <h3>Musyawarah Desa</h3>
+                    <p>Aksi serentak seluruh warga dalam menyambut musim hujan guna mengantisipasi banjir dan memperindah tata ruang jalan desa.</p>
+                </div>
+            </div>
+
+            <!-- 2. Kegiatan Kedua -->
+            <div class="kegiatan-card">
+                <img src="images/WhatsApp Image 2026-02-18 at 09.34.10 (1).jpeg" class="kegiatan-img" alt="Musyawarah Desa">
+                <div class="kegiatan-body">
+                    <h3>Musyawarah Desa</h3>
+                    <p>Pertemuan rutin dan koordinasi berkala antar perangkat desa bersama perwakilan tokoh masyarakat untuk membahas perencanaan program kerja desa ke depan.</p>
+                </div>
+            </div>
+
+            <!-- 3. Kegiatan Ketiga -->
+            <div class="kegiatan-card">
+                <img src="images/WhatsApp Image 2026-04-15 at 08.43.31 (2).jpeg" class="kegiatan-img" alt="Musyawarah Desa">
+                <div class="kegiatan-body">
+                    <h3>Musyawarah Desa</h3>
+                    <p>Evaluasi berkala pelaksanaan anggaran pembangunan infrastruktur desa guna memastikan transparansi serta ketepatan target capaian fisik di lapangan.</p>
+                </div>
+            </div>
+
+            <!-- 4. Kegiatan Keempat -->
+            <div class="kegiatan-card">
+                <img src="images/WhatsApp Image 2026-04-20 at 21.47.51.jpeg" class="kegiatan-img" alt="Musyawarah Desa">
+                <div class="kegiatan-body">
+                    <h3>Musyawarah Desa</h3>
+                    <p>Penyusunan rincian Rencana Pembangunan Jangka Menengah Desa (RPJMDes) untuk menampung aspirasi masyarakat dari tiap-tiap wilayah dusun.</p>
+                </div>
+            </div>
+        </div> <!-- Penutup kontainer kegiatan-list -->
+    </section>
+
+    <section id="kontak" style="background-color: var(--bg-light); padding-bottom: 120px;">
+        <div class="kontak-wrapper">
+            <div class="kontak-info">
+                <h2>Layanan Kontak & Aspirasi</h2>
+                <p>Silakan hubungi kami atau datang langsung ke kantor balai desa untuk pelayanan administrasi penduduk, kemitraan UMKM, maupun pertanyaan umum.</p>
+                
+                <div class="kontak-item">
+                    <div class="kontak-icon">📞</div>
+                    <div>
+                        <h4 style="color: var(--accent-color);">Telepon / WhatsApp</h4>
+                        <p>0857 0100 3805</p>
+                    </div>
+                </div>
+                <div class="kontak-item">
+                    <div class="kontak-icon">✉️</div>
+                    <div>
+                        <h4 style="color: var(--accent-color);">Email Resmi</h4>
+                        <p>info@karangsari-kembaran.desa.id</p>
+                    </div>
+                </div>
+                <div class="kontak-item">
+                    <div class="kontak-icon">📍</div>
+                    <div>
+                        <h4 style="color: var(--accent-color);">Lokasi Kantor</h4>
+                        <p>Jl. Raya Karangsari No.1, Kec. Kembaran, Kabupaten Banyumas, Jawa Tengah 53182</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-kontak">
+                <h3 style="color: white; margin-bottom: 20px;">Kirim Pesan Cepat</h3>
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Pesan Anda berhasil terkirim ke sistem Pemdes Karangsari.');">
+                    <input type="text" class="form-input" placeholder="Nama Lengkap Anda" required>
+                    <input type="email" class="form-input" placeholder="Alamat Email / No. HP" required>
+                    <textarea class="form-input" rows="4" placeholder="Tulis aspirasi atau pertanyaan Anda..." required></textarea>
+                    <button type="submit" class="btn-submit">Kirim Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Pemerintah Desa Karangsari, Kembaran, Banyumas. Seluruh Hak Cipta Dilindungi.</p>
+        <p style="font-size: 11px; margin-top: 5px; opacity: 0.4;">Maju Bersama, Inovatif, Sejahtera, dan Berbudaya.</p>
+    </footer>
+
+</body>
+</html>
